@@ -125,9 +125,11 @@ namespace TypingGame
             return false;
         }
 
-        public static string GenerateGameWords()
+        public static string GenerateGameWords(string txtFile)
         {
-
+            string fileContents = File.ReadAllText(txtFile);
+            Console.WriteLine(fileContents);
+            return fileContents;
         }
 
         static void Main(string[] args)
@@ -135,6 +137,9 @@ namespace TypingGame
             string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"\\\\GMRDC1\\Folder Redirection\\Veer.Shah\\Documents\\Visual Studio 2022\\Projects\\SQLAPIs\\TypingGame\\TypingGame\\Database1.mdf\";Integrated Security=True";
             SqlConnection connection = new SqlConnection(ConnectionString);
 
+            string txtFilePath = "\\\\GMRDC1\\Folder Redirection\\Veer.Shah\\Documents\\Visual Studio 2022\\Projects\\SQLAPIs\\TypingGame\\TypingGame\\randomParagraphs.txt";
+
+            GenerateGameWords(txtFilePath);
 
             Console.WriteLine("Welcome to the typing game...");
 
