@@ -118,7 +118,7 @@ namespace TypingGame
             loginCommand.Parameters.AddWithValue("@Username", username);
             loginCommand.Parameters.AddWithValue("@PasswordHash", hashedPassword);
             connection.Open();
-            int id = (int)loginCommand.ExecuteScalar();
+            int id = (int)loginCommand.ExecuteScalar(); //make so that it doesnt crash when typing wrong username + password
             connection.Close();
             return id;
         }
